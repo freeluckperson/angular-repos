@@ -1,0 +1,7 @@
+<div appEstilosHermanos>valor del contador: {{ contador }}</div>
+<app-hijo (decremento)="decremento()" (incremento)="incremento()" />
+<p>{{ fecha | date : "MMM d, y, h:mm:ss a" }}</p>
+<p>{{ dolar | currency }}</p>
+<h1>{{ nombre | miPipePersonalizado }}</h1>
+<button (click)="saludar()">Saludar</button>
+<button (click)="preguntar()">Preguntar por hijo</button>
