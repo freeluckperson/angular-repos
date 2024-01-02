@@ -1,36 +1,121 @@
-<!-- <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-  <label for="name">Nombre:</label>
-  <input type="text" id="name" formControlName="name" />
-
-  <label for="email">Correo electrónico:</label>
-  <input type="email" id="email" formControlName="email" />
-
-  <button type="submit">Enviar</button>
-</form> -->
-
-<div class="container d-flex justify-content-center">
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+<div class="container d-flex justify-content-center mt-4">
+  <form
+    class="border border-info p-3 rounded-3"
+    [formGroup]="contactForm"
+    (ngSubmit)="onSubmit()"
+  >
     <div class="mb-3">
       <label for="name" class="form-label">Name </label>
-      <input type="txt" class="form-control" id="name" formControlName="name" />
+      <input
+        [ngClass]="{
+          'is-invalid':
+            hasErrors('name', 'required') || hasErrors('name', 'minlength')
+        }"
+        type="txt"
+        class="form-control"
+        id="name"
+        formControlName="name"
+      />
+      <div class="text-danger" *ngIf="hasErrors('name', 'required')">
+        Please choose username
+      </div>
+      <div class="text-danger" *ngIf="hasErrors('name', 'minlength')">
+        Must be at least three characters
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="lastName" class="form-label">LastName </label>
+      <input
+        [ngClass]="{
+          'is-invalid':
+            hasErrors('lastName', 'required') ||
+            hasErrors('lastName', 'minlength')
+        }"
+        type="txt"
+        class="form-control"
+        id="lastName"
+        formControlName="lastName"
+      />
+      <div class="text-danger" *ngIf="hasErrors('lastName', 'required')">
+        Please choose username
+      </div>
+      <div class="text-danger" *ngIf="hasErrors('lastName', 'minlength')">
+        Must be at least three characters
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="CI" class="form-label">CI </label>
+      <input
+        [ngClass]="{
+          'is-invalid':
+            hasErrors('CI', 'required') || hasErrors('CI', 'minlength')
+        }"
+        type="txt"
+        class="form-control"
+        id="CI"
+        formControlName="CI"
+      />
+      <div class="text-danger" *ngIf="hasErrors('CI', 'required')">
+        Please choose username
+      </div>
+      <div class="text-danger" *ngIf="hasErrors('CI', 'minlength')">
+        Must be at least three characters
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="typeCI" class="form-label">{{ typeCI }}</label>
+      <select
+        class="form-select"
+        [ngClass]="{
+          'is-invalid':
+            hasErrors('typeCI', 'required') || hasErrors('typeCI', 'minlength')
+        }"
+        type="txt"
+        id="typeCI"
+        formControlName="typeCI"
+      >
+        <option value="passport">Passport</option>
+        <option value="CI">CI</option>
+        <option value="foreignCI">ForeignCI</option>
+      </select>
+      <div class="text-danger" *ngIf="hasErrors('typeCI', 'required')">
+        Please choose username
+      </div>
+      <div class="text-danger" *ngIf="hasErrors('typeCI', 'minlength')">
+        Must be at least three characters
+      </div>
     </div>
     <div class="mb-3">
       <label for="email" class="form-label">Email </label>
       <input
+        [ngClass]="{
+          'is-invalid': hasErrors(
+            'email',
+            'required' || hasErrors('email', 'email')
+          )
+        }"
         type="email"
         class="form-control"
         id="email"
         formControlName="email"
       />
+      <div class="text-danger" *ngIf="hasErrors('email', 'email')">
+        Invalid email
+      </div>
+      <div class="text-danger" *ngIf="hasErrors('email', 'required')">
+        Email required
+      </div>
     </div>
     <div class="text-center">
-      <button
-        type="submit"
-        [disabled]="!contactForm.valid"
-        class="btn btn-primary"
-      >
-        Submit
-      </button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="flexCheckDefault"
+      />
     </div>
   </form>
 </div>
