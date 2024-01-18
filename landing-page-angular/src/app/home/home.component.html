@@ -1,4 +1,19 @@
-<!-- <h1>Productos</h1>
-<ul>
-  <li *ngFor="let product of allProducts">{{ product.title }}</li>
-</ul> -->
+<h1>Products</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mb-4" *ngFor="let product of products">
+      <div class="card h-100">
+        <img
+          class="card-img-top img-fluid"
+          style="height: 250px"
+          src="{{ product.thumbnail }}"
+          alt="assets/jabra2.jpg"
+        />
+        <div class="card-body">
+          <div class="card-title">{{ product.title }}</div>
+          <div class="card-txt">${{ product.price }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

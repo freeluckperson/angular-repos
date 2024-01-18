@@ -1,11 +1,11 @@
-export interface IProducts {
-  products: Product[];
+export interface IProduct {
+  products: IProductDetails[];
   total: number;
   skip: number;
   limit: number;
 }
 
-export interface IProduct {
+export interface IProductDetails {
   id: number;
   title: string;
   description: string;
