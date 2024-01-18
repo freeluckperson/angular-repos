@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { productsList } from './products.mock';
 import { CurrencyPipe, NgFor } from '@angular/common';
-import { IProduct } from '../models/product.model';
-import { ApiService } from '../services/services/api.service';
 
 @Component({
   selector: 'app-product',
@@ -12,8 +10,6 @@ import { ApiService } from '../services/services/api.service';
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
 })
-export class ProductComponent  {
+export class ProductComponent {
   productsList = productsList;
-  
-  }
-
+}
